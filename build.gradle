@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'ui-testing-appium'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'io.appium', name: 'java-client', version:'6.1.0'
+    compile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+    }
+}
+
+test{
+    useTestNG() {
+        dependsOn cleanTest
+    }
+    systemProperty "testPlatform", System.properties["testPlatform"]
+}
