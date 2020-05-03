@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - openJDK8
+
+script: gradle build
+
+notifications:
+  email: prodtvlktest@gmail.com
